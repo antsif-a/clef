@@ -1,0 +1,10 @@
+$circle-size: 30rem;
+$item-count: 12;
+
+.circle {
+    width: $circle-size;
+    height: $circle-size;
+    border: solid 1px black;
+    border-radius: 50%;
+    list-style: none;
+}
