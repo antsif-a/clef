@@ -11,7 +11,7 @@ enum Interval {
     MajorSixth,
     MinorSeventh,
     MajorSeventh,
-    PerfectOctave
+    PerfectOctave,
 }
 
 export default Interval;
