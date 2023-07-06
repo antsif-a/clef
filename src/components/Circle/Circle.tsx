@@ -1,10 +1,5 @@
-import React, {
-    useEffect,
-    useMemo,
-    useRef,
-    useState,
-} from 'react';
-import TheoryCircleStyles from './Circle.module.scss';
+import React, { useMemo, useRef, useState } from 'react';
+import CircleStyles from './Circle.module.scss';
 import CircleChord from '../CircleChord';
 import Interval from '../../models/Interval';
 import { chromaticScale } from '../../models/Scales';
@@ -31,31 +26,15 @@ export default function Circle() {
         () => sortByInterval(chromaticScale, interval),
         [interval],
     );
-    const chordContainer = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        Array.from(chordContainer.current!.children).forEach((li, i) => {
-            const rot = (i * 360) / chords.length + 1;
-            (li as HTMLLIElement).style.transform = `
-                translate(-50%, -50%)
-                rotate(${rot}deg)
-                translateY(-15rem)
-                rotate(-${rot}deg
-            `;
-        });
-    });
 
     return (
-        <ul className={TheoryCircleStyles.circle}>
-            <div ref={(chordContainer)}>
-                {chords.map((n) => (
-                    <CircleChord
-                        root={n}
-                        onClick={() => {}}
-                        key={Math.random()} // wtf
-                    />
-                ))}
-            </div>
+        <ul className={CircleStyles.circle}>
+            {chords.map((n) => (
+                <CircleChord
+                    root={n}
+                    onClick={() => {}}
+                />
+            ))}
         </ul>
     );
 }

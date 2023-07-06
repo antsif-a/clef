@@ -2,9 +2,27 @@ $circle-size: 30rem;
 $item-count: 12;
 
 .circle {
+    margin: 0;
+    padding: 0;
     width: $circle-size;
     height: $circle-size;
-    border: solid 1px black;
-    border-radius: 50%;
+    border: {
+        width: 1px;
+        color: #000;
+        style: solid;
+        radius: 50%;
+    }
+
     list-style: none;
+
+    @for $i from 0 through $item-count {
+        $rot: calc(($i - 1) * 360 / $item-count);
+        li:nth-of-type(#{$i}) {
+            transform:
+                translate(-50%, -50%)
+                rotate(#{$rot}deg)
+                translateY(-#{calc($circle-size / 2)})
+                rotate(-#{$rot}deg);
+        }
+    }
 }

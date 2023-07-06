@@ -3,21 +3,32 @@
 $item-size: calc($circle-size / $item-count * 2);
 
 .chord {
-  padding: 0;
-  margin: 0;
-  width: $item-size;
-  height: $item-size;
-  line-height: $item-size;
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    padding: 0;
+    margin: 0;
+    width: $item-size;
+    height: $item-size;
+    line-height: $item-size;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-  button {
-    border-radius: 50%;
-    font-size: 20px;
-    width: inherit;
-    height: inherit;
-  }
+    button {
+        border-radius: 50%;
+        font-size: 20px;
+        width: inherit;
+        height: inherit;
+        border: none;
+        cursor: pointer;
+        background-color: lightgreen;
+
+        &:hover {
+            filter: brightness(90%);
+        }
+
+        &:active {
+            filter: brightness(80%);
+        }
+    }
 }
