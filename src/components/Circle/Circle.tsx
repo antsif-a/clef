@@ -1,10 +1,11 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useMemo } from 'react';
+import { PolySynth, Unit } from 'tone';
 import CircleStyles from './Circle.module.scss';
 import CircleChord from '../CircleChord';
 import Interval from '../../models/Interval';
-import { chromaticScale } from '../../models/Scales';
+import { getChromaticScale, Scale } from '../../models/Scales';
 
-function sortByInterval(arr: any[], interval: Interval) {
+function sortByInterval(arr: Scale, interval: Interval) {
     const newArr = [...arr];
     let counter = 0;
     for (let i = 0; i < arr.length - 1; i++) {
@@ -20,19 +21,34 @@ function sortByInterval(arr: any[], interval: Interval) {
     return newArr;
 }
 
-export default function Circle() {
-    const [interval] = useState(Interval.PerfectFifth);
+interface CircleProps {
+    instrument: PolySynth;
+    octave: number;
+    stepInterval: Unit.Interval;
+}
+
+export default function Circle({
+    instrument,
+    octave,
+    stepInterval,
+}: CircleProps) {
     const chords = useMemo(
-        () => sortByInterval(chromaticScale, interval),
-        [interval],
+        () => sortByInterval(getChromaticScale(octave), stepInterval),
+        [stepInterval, octave],
     );
 
     return (
         <ul className={CircleStyles.circle}>
-            {chords.map((n) => (
+            {chords.map((note) => (
                 <CircleChord
-                    root={n}
-                    onClick={() => {}}
+                    instrument={instrument}
+                    root={note}
+                    intervals={[
+                        Interval.Unison,
+                        Interval.MajorThird,
+                        Interval.PerfectFifth,
+                    ]}
+                    key={note.toFrequency()}
                 />
             ))}
         </ul>

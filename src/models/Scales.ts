@@ -1,14 +1,37 @@
-export const chromaticScale = [
+// export const chromaticScale = [
+//     'C',
+//     'C#/Db',
+//     'D',
+//     'D#/Eb',
+//     'E',
+//     'F',
+//     'F#/Gb',
+//     'G',
+//     'G#/Ab',
+//     'A',
+//     'A#/Bb',
+//     'B',
+// ];
+
+import { Frequency, FrequencyClass } from 'tone';
+
+const chromaticNotes = [
     'C',
-    'C#/Db',
+    'C#',
     'D',
-    'D#/Eb',
+    'D#',
     'E',
     'F',
-    'F#/Gb',
+    'F#',
     'G',
-    'G#/Ab',
+    'G#',
     'A',
-    'A#/Bb',
+    'A#',
     'B',
 ];
+
+export type Scale = FrequencyClass[];
+
+export function getChromaticScale(octave: number) {
+    return chromaticNotes.map((n) => Frequency(`${n}${octave}`));
+}
