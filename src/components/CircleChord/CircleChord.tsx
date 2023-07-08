@@ -1,8 +1,8 @@
 import React from 'react';
 import { FrequencyClass, PolySynth } from 'tone';
+import Interval from '@/models/Interval';
+import usePlayChord from '@/hooks/usePlayChord';
 import CircleChordStyles from './CircleChord.module.scss';
-import Interval from '../../models/Interval';
-import usePlayChord from '../../hooks/usePlayChord';
 
 interface CircleChordProps {
     root: FrequencyClass;

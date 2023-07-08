@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react';
 import { PolySynth, Unit } from 'tone';
+import CircleChord from '@/components/CircleChord';
+import Interval from '@/models/Interval';
+import { getChromaticScale, Scale } from '@/models/Scales';
 import CircleStyles from './Circle.module.scss';
-import CircleChord from '../CircleChord';
-import Interval from '../../models/Interval';
-import { getChromaticScale, Scale } from '../../models/Scales';
 
 function sortByInterval(arr: Scale, interval: Interval) {
     const newArr = [...arr];

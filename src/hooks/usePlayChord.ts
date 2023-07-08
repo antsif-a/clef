@@ -1,5 +1,5 @@
 import { FrequencyClass, PolySynth, Unit } from 'tone';
-import Interval from '../models/Interval';
+import Interval from '@/models/Interval';
 
 export default function usePlayChord(
     instrument: PolySynth,

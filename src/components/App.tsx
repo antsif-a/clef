@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import React from 'react';
-import RootRoute from '../routes/RootRoute';
-import CircleRoute from '../routes/Circle';
+import RootRoute from '@/routes/RootRoute';
+import CircleRoute from '@/routes/Circle';
 
 export default function App() {
     const router = createBrowserRouter([

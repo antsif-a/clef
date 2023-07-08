@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import usePlayNote from '../hooks/usePlayNote';
+import usePlayNote from '@/hooks/usePlayNote';
 
 export default function RootRoute() {
     function playCMajor() {
