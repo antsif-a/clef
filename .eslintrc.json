@@ -16,6 +16,7 @@
   ],
   "rules": {
     "@typescript-eslint/indent": "off",
+    "@typescript-eslint/lines-between-class-members": ["error", { "exceptAfterSingleLine": true }],
     "import/extensions": "off",
     "react/button-has-type": "off",
     "react/jsx-indent": "off",
@@ -26,11 +27,6 @@
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-a11y/no-noninteractive-element-interactions": "off",
     "no-restricted-exports": "off",
-    "no-plusplus": [
-      "error",
-      {
-        "allowForLoopAfterthoughts": true
-      }
-    ]
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
   }
 }
